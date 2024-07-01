@@ -49,7 +49,7 @@ def start_thread():
     threading.Thread(target=run_commands).start()
 
 def on_closing():
-    os.system("taskkill /f /im DepotDownloadermod.exe")
+    subprocess.Popen("taskkill /f /im DepotDownloadermod.exe", creationflags=subprocess.CREATE_NO_WINDOW)
     os._exit(0)
 
 def select_save_location():
