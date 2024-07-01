@@ -7,25 +7,25 @@ import re
 import os
 
 def run_command(pubfileid):
-    printlog(tk.END, f"----------正在下载 {pubfileid}--------\n")
+    printlog(f"----------正在下载 {pubfileid}--------\n")
     if 'save_location' not in globals():
-        printlog(tk.END, "错误：保存位置未正确设置。\n")
+        printlog("错误：保存位置未正确设置。\n")
         return
     if not os.path.isdir(save_location):
-        printlog(tk.END, "错误：保存位置不存在。\n")
+        printlog("错误：保存位置不存在。\n")
         return
     target_directory = os.path.join(save_location, "projects", "myprojects")
     if not os.path.isdir(target_directory):
-        printlog(tk.END, "无效的保存位置：选定目录不包含 \projects\myprojects\n")
+        printlog("无效的保存位置：选定目录不包含 \projects\myprojects\n")
         return
     dir_option = f"-dir {save_location}\\projects\\myprojects\\{pubfileid}"  
     command = f"DepotdownloaderMod\\DepotDownloadermod.exe -app 431960 -pubfile {pubfileid} -verify-all -username {username.get()} -password {passwords[username.get()]} {dir_option}"
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     for line in process.stdout:
-        printlog(tk.END, line)
+        printlog(line)
     process.stdout.close()
     process.wait()
-    printlog(tk.END, f"-------------下载完成-----------\n")
+    printlog(f"-------------下载完成-----------\n")
 
 def printlog(log):
     console.config(state=tk.DISABLED)
@@ -42,7 +42,7 @@ def run_commands():
             if match:
                 run_command(match.group(0))
             else:
-                printlog(tk.END, f"无效链接：{link}\n") 
+                printlog(f"无效链接：{link}\n") 
     run_button.config(state=tk.NORMAL)
 
 def start_thread():
@@ -56,9 +56,9 @@ def select_save_location():
     selected_directory = filedialog.askdirectory()
     target_directory = os.path.join(selected_directory, "projects", "myprojects")
     if not os.path.isdir(target_directory):
-        printlog(tk.END, "无效的保存位置：选定目录不包含 \projects\myprojects\n")
+        printlog("无效的保存位置：选定目录不包含 \projects\myprojects\n")
     else:
-        printlog(tk.END, f"路径已设置为 {target_directory}\n")
+        printlog(f"路径已设置为 {target_directory}\n")
         global save_location
         save_location = selected_directory
         save_location_label.config(text=f"保存位置：{target_directory}")

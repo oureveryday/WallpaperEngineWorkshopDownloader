@@ -13,20 +13,20 @@ def run_command(pubfileid):
         printlog("Error: Save location is not set correctly.\n")
         return
     if not os.path.isdir(save_location):
-        printlog(tk.END, "Error: Save location is not exist.\n")
+        printlog("Error: Save location is not exist.\n")
         return
     target_directory = os.path.join(save_location, "projects", "myprojects")
     if not os.path.isdir(target_directory):
-        printlog(tk.END, "Invaild save location: Selected directory does not contain \projects\myprojects\n")
+        printlog("Invaild save location: Selected directory does not contain \projects\myprojects\n")
         return
     dir_option = f"-dir {save_location}\\projects\\myprojects\\{pubfileid}"  # Ensure the directory path is correctly formatted for Windows
     command = f"DepotdownloaderMod\\DepotDownloadermod.exe -app 431960 -pubfile {pubfileid} -verify-all -username {username.get()} -password {passwords[username.get()]} {dir_option}"
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     for line in process.stdout:
-        printlog(tk.END, line)
+        printlog(line)
     process.stdout.close()
     process.wait()
-    printlog(tk.END, f"-------------Download finished-----------\n")
+    printlog(f"-------------Download finished-----------\n")
 
 def printlog(log):
     console.config(state=tk.DISABLED)
@@ -44,7 +44,7 @@ def run_commands():
             if match:
                 run_command(match.group(0))
             else:
-                printlog(tk.END, f"Invalid link: {link}\n")
+                printlog(f"Invalid link: {link}\n")
     run_button.config(state=tk.NORMAL)
             
 # Function to run commands in a separate thread
@@ -60,9 +60,9 @@ def select_save_location():
     selected_directory = filedialog.askdirectory()
     target_directory = os.path.join(selected_directory, "projects", "myprojects")
     if not os.path.isdir(target_directory):
-        printlog(tk.END, "Invaild save location: Selected directory does not contain \projects\myprojects\n")
+        printlog("Invaild save location: Selected directory does not contain \projects\myprojects\n")
     else:
-        printlog(tk.END, f"Path set to {target_directory}\n")
+        printlog(f"Path set to {target_directory}\n")
         global save_location
         save_location = selected_directory
         save_location_label.config(text=f"Save Location: {target_directory}")
