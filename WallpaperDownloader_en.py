@@ -62,12 +62,12 @@ def select_save_location():
     if not os.path.isdir(target_directory):
         printlog("Invaild save location: Selected directory does not contain \projects\myprojects\n")
     else:
-        printlog(f"Path set to {target_directory}\n")
+        printlog(f"Path set to {selected_directory}\n")
         global save_location
         save_location = selected_directory
-        save_location_label.config(text=f"Save Location: {target_directory}")
+        save_location_label.config(text=f"Save Location: {selected_directory}")
         with open('lastsavelocation.cfg', 'w') as file:
-            file.write(target_directory)
+            file.write(selected_directory)
 
 # Accounts and passwords
 accounts = {'ruiiixx': 'UzY3R0JUQjgzRDNZ',

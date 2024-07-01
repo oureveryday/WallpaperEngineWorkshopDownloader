@@ -58,12 +58,12 @@ def select_save_location():
     if not os.path.isdir(target_directory):
         printlog("无效的保存位置：选定目录不包含 \projects\myprojects\n")
     else:
-        printlog(f"路径已设置为 {target_directory}\n")
+        printlog(f"路径已设置为 {selected_directory}\n")
         global save_location
         save_location = selected_directory
-        save_location_label.config(text=f"保存位置：{target_directory}")
+        save_location_label.config(text=f"保存位置：{selected_directory}")
         with open('lastsavelocation.cfg', 'w') as file:
-            file.write(target_directory)
+            file.write(selected_directory)
 
 def load_save_location():
     try:
