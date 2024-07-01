@@ -28,10 +28,10 @@ def run_command(pubfileid):
     printlog(f"-------------下载完成-----------\n")
 
 def printlog(log):
-    console.config(state=tk.DISABLED)
+    console.config(state=tk.NORMAL)
     console.insert(tk.END, log)
     console.yview(tk.END)
-    console.config(state=tk.NORMAL)
+    console.config(state=tk.DISABLED)
 
 def run_commands():
     run_button.config(state=tk.DISABLED)

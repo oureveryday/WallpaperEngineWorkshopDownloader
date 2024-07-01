@@ -29,10 +29,10 @@ def run_command(pubfileid):
     printlog(f"-------------Download finished-----------\n")
 
 def printlog(log):
-    console.config(state=tk.DISABLED)
+    console.config(state=tk.NORMAL)
     console.insert(tk.END, log)
     console.yview(tk.END)
-    console.config(state=tk.NORMAL)
+    console.config(state=tk.DISABLED)
 
 # Function to handle running commands in sequence
 def run_commands():
