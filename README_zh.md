@@ -12,6 +12,8 @@
 
 ## 使用方法  
 
+ * 请先安装 [.NET 8.0 运行库](https://aka.ms/dotnet-core-applaunch?framework=Microsoft.NETCore.App&framework_version=8.0.0&arch=x64&rid=win10-x64)
+
  1. 在 <https://steamcommunity.com/app/431960/workshop/> 浏览你喜欢的创意工坊项目。
 
  2. 复制你喜欢的创意工坊项目的URL。例如，`https://steamcommunity.com/sharedfiles/filedetails/?id=1234567890`

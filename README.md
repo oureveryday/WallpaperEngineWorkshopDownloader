@@ -14,6 +14,8 @@ A workshop download tool for Wallpaper Engine.
 
 ## Usage  
 
+ * Please install [.NET 8.0 Runtime](https://aka.ms/dotnet-core-applaunch?framework=Microsoft.NETCore.App&framework_version=8.0.0&arch=x64&rid=win10-x64) first.
+
  1. Browse the workshop item you like in <https://steamcommunity.com/app/431960/workshop/>
 
  2. Copy the URL of the workshop item you like. For example, `https://steamcommunity.com/sharedfiles/filedetails/?id=1234567890`
