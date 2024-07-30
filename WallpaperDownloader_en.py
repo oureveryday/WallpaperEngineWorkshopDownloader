@@ -19,7 +19,7 @@ def run_command(pubfileid):
     if not os.path.isdir(target_directory):
         printlog("Invaild save location: Selected directory does not contain \projects\myprojects\n")
         return
-    dir_option = f"-dir {save_location}\\projects\\myprojects\\{pubfileid}"  # Ensure the directory path is correctly formatted for Windows
+    dir_option = f"-dir \"{save_location}\\projects\\myprojects\\{pubfileid}\""  # Ensure the directory path is correctly formatted for Windows
     command = f"DepotdownloaderMod\\DepotDownloadermod.exe -app 431960 -pubfile {pubfileid} -verify-all -username {username.get()} -password {passwords[username.get()]} {dir_option}"
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,creationflags=subprocess.CREATE_NO_WINDOW)
     for line in process.stdout:

@@ -18,7 +18,7 @@ def run_command(pubfileid):
     if not os.path.isdir(target_directory):
         printlog("无效的保存位置：选定目录不包含 \projects\myprojects\n")
         return
-    dir_option = f"-dir {save_location}\\projects\\myprojects\\{pubfileid}"  
+    dir_option = f"-dir \"{save_location}\\projects\\myprojects\\{pubfileid}\""  
     command = f"DepotdownloaderMod\\DepotDownloadermod.exe -app 431960 -pubfile {pubfileid} -verify-all -username {username.get()} -password {passwords[username.get()]} {dir_option}"
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,creationflags=subprocess.CREATE_NO_WINDOW)
     for line in process.stdout:
